@@ -10,6 +10,10 @@ android {
     setDefaultSigningConfigs(project)
     setAppConfig()
     useDefaultBuildTypes()
+
+    defaultConfig {
+        buildConfigBoolean("ENABLE_CRASH_REPORTING", true)
+    }
 }
 
 dependencies {
