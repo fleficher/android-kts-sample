@@ -8,7 +8,7 @@ plugins {
 
 android {
     setDefaultSigningConfigs(project)
-    useDefaultConfig()
+    setAppConfig()
     useDefaultBuildTypes()
 }
 

@@ -1,2 +1,5 @@
-include(":app")
-rootProject.name = "KTS_Sample"
+rootProject.name = "BuildKTS"
+
+modules.forEach {
+    include(it)
+}
