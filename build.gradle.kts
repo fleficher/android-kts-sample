@@ -15,3 +15,8 @@ allprojects {
 task<Delete>("clean") {
     delete(rootProject.buildDir)
 }
+
+
+task<tasks.PingUrlTask>("pingUrl") {
+    url = "https://www.google.com"
+}
