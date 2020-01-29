@@ -12,7 +12,7 @@ sealed class BuildType(val secret: String) {
 
 fun com.android.build.gradle.internal.dsl.BuildType.getConfiguration(): BuildType {
     return when (this.name) {
-        "release" -> BuildType.DebugBuildType
+        "release" -> BuildType.ReleaseBuildType
         else -> BuildType.DebugBuildType
     }
 }
