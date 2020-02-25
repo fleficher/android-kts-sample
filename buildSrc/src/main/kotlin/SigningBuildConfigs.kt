@@ -6,13 +6,13 @@ import java.lang.Exception
 import java.util.*
 
 fun BaseAppModuleExtension.setDefaultSigningConfigs(project: Project) = signingConfigs {
-    getByName("debug") {
-        storeFile = project.rootProject.file("debug-key.jks")
-        storePassword = "android"
-        keyAlias = "androiddebugkey"
-        keyPassword = "android"
+    it.getByName("debug") {
+        it.storeFile = project.rootProject.file("debug-key.jks")
+        it.storePassword = "android"
+        it.keyAlias = "androiddebugkey"
+        it.keyPassword = "android"
     }
-    register("release") {
+    it.register("release") {
         val keystorePropertiesFile = project.rootProject.file("release.keystore.properties")
         if (!keystorePropertiesFile.exists()) {
             System.err.println("📜 Missing release.keystore.properties file for release signing")
@@ -21,10 +21,10 @@ fun BaseAppModuleExtension.setDefaultSigningConfigs(project: Project) = signingC
                 load(FileInputStream(keystorePropertiesFile))
             }
             try {
-                storeFile = File(keystoreProperties["storeFile"] as String)
-                storePassword = keystoreProperties["storePassword"] as String
-                keyAlias = keystoreProperties["keyAlias"] as String
-                keyPassword = keystoreProperties["keyPassword"] as String
+                it.storeFile = File(keystoreProperties["storeFile"] as String)
+                it.storePassword = keystoreProperties["storePassword"] as String
+                it.keyAlias = keystoreProperties["keyAlias"] as String
+                it.keyPassword = keystoreProperties["keyPassword"] as String
             } catch (e: Exception) {
                 System.err.println("📜 release.keystore.properties file is malformed")
             }

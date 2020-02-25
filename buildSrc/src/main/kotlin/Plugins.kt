@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.kotlin
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
 
@@ -9,10 +8,10 @@ fun PluginDependenciesSpec.androidLibrary(): PluginDependencySpec =
     id("com.android.library")
 
 fun PluginDependenciesSpec.kotlinAndroid(): PluginDependencySpec =
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
 
 fun PluginDependenciesSpec.kotlinAndroidExt(): PluginDependencySpec =
-    kotlin("android.extensions")
+    id("org.jetbrains.kotlin.android.extensions")
 
 fun PluginDependenciesSpec.dependencyUpdates(): PluginDependencySpec =
     id("com.github.ben-manes.versions").version("0.24.0")
