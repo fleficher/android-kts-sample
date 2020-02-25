@@ -6,13 +6,15 @@ fun BaseAppModuleExtension.setAppConfig() {
     buildToolsVersion(ProjectConfiguration.buildTools)
 
     defaultConfig {
-        minSdkVersion(ProjectConfiguration.minSdk)
-        targetSdkVersion(ProjectConfiguration.targetSdk)
+        it.apply {
+            minSdkVersion(ProjectConfiguration.minSdk)
+            targetSdkVersion(ProjectConfiguration.targetSdk)
 
-        applicationId = ProjectConfiguration.applicationId
-        versionCode = ProjectConfiguration.versionCode
-        versionName = ProjectConfiguration.versionName
-        testInstrumentationRunner = ProjectConfiguration.testInstrumentationRunner
+            applicationId = ProjectConfiguration.applicationId
+            versionCode = ProjectConfiguration.versionCode
+            versionName = ProjectConfiguration.versionName
+            testInstrumentationRunner = ProjectConfiguration.testInstrumentationRunner
+        }
     }
 }
 
@@ -21,16 +23,16 @@ fun BaseExtension.setDefaultConfig() {
     buildToolsVersion(ProjectConfiguration.buildTools)
 
     defaultConfig {
-        minSdkVersion(ProjectConfiguration.minSdk)
-        targetSdkVersion(ProjectConfiguration.targetSdk)
+        it.minSdkVersion(ProjectConfiguration.minSdk)
+        it.targetSdkVersion(ProjectConfiguration.targetSdk)
 
-        testInstrumentationRunner = ProjectConfiguration.testInstrumentationRunner
+        it.testInstrumentationRunner = ProjectConfiguration.testInstrumentationRunner
     }
 }
 
 fun BaseExtension.useDefaultBuildTypes() = buildTypes {
-    getByName("release") {
-        isMinifyEnabled = true
-        proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+    it.getByName("release") {
+        it.isMinifyEnabled = true
+        it.proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
 }
